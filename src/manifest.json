@@ -1,0 +1,21 @@
+{
+
+  "manifest_version": 2,
+  "name": "firefox-extension-base",
+  "version": "1.0",
+
+  "description": "A reasonably workable base development environment for a firefox extension.",
+  "icons": {
+    "48": "icons/question-circle-solid.svg"
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/question-circle-solid.svg",
+    "default_title": "firefox extension",
+    "default_popup": "popup/destroy.html"
+  }
+}
