@@ -30,7 +30,12 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'css/[name].css',
+              name: file => {
+                //TODO: get scss directory to write to dist/css, but have
+                // all other scss files output wherever they stand in the tree
+                //console.log(file)
+                return 'css/[name].css'
+              },
             }
           },
           {
@@ -42,14 +47,6 @@ module.exports = {
           {
             loader: 'sass-loader'
           }
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          'css-loader',
         ]
       },
       {
@@ -94,11 +91,6 @@ module.exports = {
       {
         from: './src/icons',
         to: 'icons'
-      },
-      {
-        from: './src/**/*.css',
-        to: '[1]',
-        test: /src\/(.*\.css)/
       },
       {
         from: './src/**/*.html',

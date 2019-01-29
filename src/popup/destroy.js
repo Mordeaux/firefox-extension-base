@@ -1,3 +1,4 @@
+import './destroy.scss'
 import { DESTROY, UNDESTROY } from '../constants'
 
 const listenForClicks = () => {
