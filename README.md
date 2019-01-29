@@ -9,3 +9,8 @@ code should automatically update in the browser.
 
 * `make ext`
 * `cd dist && web-ext run`
+
+
+### Borrowings
+I used Font Awesome in here
+https://fontawesome.com/license
