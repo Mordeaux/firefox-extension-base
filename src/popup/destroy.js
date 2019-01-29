@@ -1,14 +1,13 @@
 import { DESTROY, UNDESTROY } from '../constants'
 
-const hidePage = `body > :not(.destroyer) {
-                    display: none;
-                  }`
-
 const listenForClicks = () => {
   document.addEventListener("click", (e) => {
 
     const destroy = tabs => {
-      browser.tabs.insertCSS({code: hidePage}).then(() => {
+      browser.tabs.insertCSS({
+        file: '/css/styles.css',
+        cssOrigin: 'user',
+      }).then(() => {
         browser.tabs.sendMessage(tabs[0].id, {
           command: DESTROY,
         })
@@ -16,7 +15,10 @@ const listenForClicks = () => {
     }
 
     const reset = tabs => {
-      browser.tabs.removeCSS({code: hidePage}).then(() => {
+      browser.tabs.removeCSS({
+        file: '/css/styles.css',
+        cssOrigin: 'user',
+      }).then(() => {
         browser.tabs.sendMessage(tabs[0].id, {
           command: UNDESTROY,
         })

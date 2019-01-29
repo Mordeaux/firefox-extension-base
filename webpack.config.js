@@ -80,6 +80,10 @@ module.exports = {
   plugins:[
     new CopyWebpackPlugin([
       {
+        from: './src/css',
+        to: 'css'
+      },
+      {
         from: './src/icons',
         to: 'icons'
       },
