@@ -1,4 +1,4 @@
-IMAGE_BASE = firefox-extension
+IMAGE_BASE = firefox-extension-base
 
 .PHONY: help
 help: ## Need to pass in GITBRANCH and TAG 'make build TAG=# GITBRANCH=test'
@@ -11,7 +11,7 @@ help: ## Need to pass in GITBRANCH and TAG 'make build TAG=# GITBRANCH=test'
 
 .PHONY: build
 build: ## Builds master docker image base
-	docker build --build-arg -t $(IMAGE_BASE):base .
+	docker build -t $(IMAGE_BASE):base .
 
 .PHONY: ext
 ext:

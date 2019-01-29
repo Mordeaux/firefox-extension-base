@@ -25,12 +25,23 @@ module.exports = {
         ]
       },
       {
-        test: /\.less$/,
+        test: /\.scss$/,
         use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'less-loader',
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'css/[name].css',
+            }
+          },
+          {
+            loader: 'extract-loader'
+          },
+          {
+            loader: 'css-loader?-url'
+          },
+          {
+            loader: 'sass-loader'
+          }
         ]
       },
       {
@@ -67,6 +78,7 @@ module.exports = {
     background_scripts: "./src/background_scripts/background.js",
     popup: "./src/popup/destroy.js",
     content_scripts: "./src/content_scripts/destroy.js",
+    styles: './src/scss/styles.scss',
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -79,10 +91,6 @@ module.exports = {
   node: false,
   plugins:[
     new CopyWebpackPlugin([
-      {
-        from: './src/css',
-        to: 'css'
-      },
       {
         from: './src/icons',
         to: 'icons'
